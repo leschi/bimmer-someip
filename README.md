@@ -1,14 +1,13 @@
 # bimmer-someip
 
-Kleines Tool, um den SOME/IP-Verkehr im Automotive-Ethernet eines BMW
-mitzulesen, Services zu entdecken und auch selbst welche anzubieten. Dazu ein
-paar Helfer, um Wireshark-Mitschnitte auszuwerten.
+Small tool to watch the SOME/IP traffic on a BMW's automotive Ethernet, discover
+services and offer your own. Plus a few helpers to pick apart Wireshark captures.
 
-Getestet an einem BMW G11 (745e, G-Serie). Der Laptop hängt über einen
-**NXP RDDRONE-T1ADAPT** (RJ45 <-> 100BASE-T1) am Fahrzeug-Backbone, VLAN 73.
+Tested on a BMW G11 (745e, G series). The laptop sits on the vehicle backbone
+through an **NXP RDDRONE-T1ADAPT** (RJ45 <-> 100BASE-T1), on VLAN 73.
 
-Python 3.12, keine zusätzlichen Pakete. tshark (aus Wireshark) wird nur für den
-Capture-Empfang und die Offline-Analyse gebraucht.
+Python 3.12, no extra packages. tshark (from Wireshark) is only needed for live
+capture and the offline analysis.
 
 ## Start
 
@@ -16,18 +15,18 @@ Capture-Empfang und die Offline-Analyse gebraucht.
 python -m someip live
 ```
 
-Beim ersten Mal die Werte unter **F2** setzen (Bind-IP, Interface, tshark-Pfad)
-und speichern – danach reicht der Befehl oben ohne Argumente.
+On first run set the values under **F2** (bind IP, interface, tshark path) and
+save them – after that the command above works without arguments.
 
-Mitschnitt offline ansehen:
+Look at a capture offline:
 
 ```
 python -m someip analyze capture.pcapng --vlan 73 --sd
 python -m someip matrix  capture.pcapng --csv services.csv
 ```
 
-## Hinweis
+## Note
 
-Nur am eigenen Fahrzeug, auf eigene Gefahr. Senden kann Fahrzeugfunktionen
-beeinflussen – im Zweifel nur mitlesen. Nicht mit BMW affiliiert, keine
-Fahrzeug- oder Diagnosedaten im Repo.
+Only on your own car, at your own risk. Sending can affect vehicle functions –
+when in doubt just listen. Not affiliated with BMW, no vehicle or diagnostic
+data in this repo.
