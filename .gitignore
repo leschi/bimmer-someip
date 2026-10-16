@@ -4,3 +4,12 @@ __pycache__/
 *.pcap
 *.pcapng
 *.log
+
+# BMW-/Diagnosedaten (nie einchecken)
+*.prg
+*.grp
+*.pdx
+*.caf
+*.ncd
+*.man
+*.trc
